@@ -1,0 +1,30 @@
+{
+  "name": "api-rest-crypto",
+  "version": "1.0.0",
+  "description": "api rest for crypto tokens consults",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagoviera/API-Rest-Crypto.git"
+  },
+  "keywords": [
+    "node",
+    "js"
+  ],
+  "author": "thiagoviera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thiagoviera/API-Rest-Crypto/issues"
+  },
+  "homepage": "https://github.com/thiagoviera/API-Rest-Crypto#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}

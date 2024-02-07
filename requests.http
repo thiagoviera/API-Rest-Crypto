@@ -1,0 +1,25 @@
+GET http://localhost:3000/cryptos HTTP/1.1
+
+###
+GET http://localhost:3000/cryptos/2 HTTP/1.1
+
+###
+POST http://localhost:3000/cryptos HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Flixxo",
+    "marketcap": "100Billones",
+    "value": "100.000 USD"
+}
+
+###
+PUT http://localhost:3000/cryptos/5 HTTP/1.1
+Content-Type: application/json
+
+{
+    "marketcap": "200Billones"
+}
+
+###
+DELETE http://localhost:3000/cryptos/3 HTTP/1.1
