@@ -1,3 +1,44 @@
+# Project
+
+Backend Challenge de Flixxo
+
+### Descripcion
+
+Este repositorio contiene una REST Api soliticitada para el registro, modificacion y consultas a una base de datos que contenga criptomonedas o tokens de la actualidad.
+
+Esta construida sobre Javascript y Node.js utilizando frameworks como Express.js, el ORM de Sequelize
+
+### Requisitos
+
+-  Node.js 
+-  NPM 
+-  PostgreSQL 
+
+## Setup
+
+Comenzamos clonando este repositorio en nuesto equipo.
+En el mismo no solo se incluye la API si no que tambien se incluyen los archivos de package.json con las configuraciones del proyecto.
+
+Una vez clonado el repositorio debemos abrir nuestra terminal dentro de la carpeta del proyecto (API-Rest-Crypto) y ejecutar el comando
+
+```shell
+npm npm i express morgan sequelize pg pg-hstore
+```
+Estos van a ser los modulos principales que la API necesita.
+
+Luego va a ser necesario tener creada nuestra base de datos previamente en Postgres, para el desarrollo de la API se utilizo DBeaver como interfaz grafica de consulta donde se creo una conexion y luego en la misma una base de datos con el nombre "flixxo", la aplicacion va a depender de que esta base de datos este creada para funcionar correctamente y luego a traves de Sequelize realizar el mapeo.
+
+### Build y Ejecucion
+
+Gracias a las configuraciones de nodemon en nuestro package.json, ejecutando el siguiente comando vamos a levantar nuestro proyecto con este comando:
+
+```shell
+npm run dev
+```
+###
+Los endpoint y las consultas se realizaron mediante Thunder Client, una extension de Visual Studio Code que facilita la prueba y consulta de los endpoints de nuestra api, los endpoints que se utilizaron son los siguientes:
+![alt text](image.png)
+
 # Respuestas
 
 ### ¿Qué es SQL Injection y cómo puede evitarse?
