@@ -38,7 +38,8 @@ npm run dev
 ###
 Los endpoint y las consultas se realizaron mediante Thunder Client, una extension de Visual Studio Code que facilita la prueba y consulta de los endpoints de nuestra api, los endpoints que se utilizaron son los siguientes:
 
-GET http://localhost:4000/tokens Para obtener todos los tokens
+```
+GET http://localhost:4000/tokens Para obtener todos los tokens 
 POST http://localhost:4000/tokens Para crear un nuevo token, el cuerpo que debemos enviarle es el siguiente:
 {
   "name": "Nombre del Token",
@@ -49,6 +50,7 @@ POST http://localhost:4000/tokens Para crear un nuevo token, el cuerpo que debem
 PUT http://localhost:4000/tokens/id Para actualizar un token mediante el ID
 GET http://localhost:4000/tokens/id/priceHistory Para obtener todos los precios que tuvo un token
 GET http://localhost:4000/id/lastPrice Para obtener el ultimo precio/precio actual de un token
+```
 
 # Respuestas
 
