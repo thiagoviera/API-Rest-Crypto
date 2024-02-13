@@ -12,13 +12,13 @@ export const Token = sequelize.define("tokens", {
         type: DataTypes.STRING,
     },
     price: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.DOUBLE,
     },
     description: {
         type: DataTypes.STRING,
     },
     priceHistory: {
-        type: DataTypes.FLOAT,
+        type: DataTypes.DOUBLE,
     },
 }, {
     timestamps: true
