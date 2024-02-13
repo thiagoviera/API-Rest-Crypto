@@ -37,6 +37,7 @@ npm run dev
 ```
 ###
 Los endpoint y las consultas se realizaron mediante Thunder Client, una extension de Visual Studio Code que facilita la prueba y consulta de los endpoints de nuestra api, los endpoints que se utilizaron son los siguientes:
+
 ![alt text](image.png)
 
 # Respuestas

@@ -26,41 +26,83 @@ export const getToken = async (req, res) => {
     }
 }
 
-export const createToken = async (req, res) =>{
+export const getLastTokenPrice = async (req, res) => {
     try {
-        const {name, price, description, priceHistory } = req.body
+        const { id } = req.params;
+        const token = await Token.findOne({
+            where: { id },
+            attributes: ['price'],
+            order: [['createdAt', 'DESC']],
+            limit: 1
+        });
 
-    const newToken = await Token.create({
-        name,
-        price,
-        description,
-        priceHistory
-    })
+        if (!token) 
+            return res.status(404).json({ message: 'Token not found' });
 
-    res.json(newToken);
+        res.json({ price: token.price });
     } catch (error) {
-        return res.status(500).json({message: error.message})
+        return res.status(500).json({ message: error.message });
     }
-}
+};
 
-export const updateToken = async (req, res) =>{
-    try{
+export const getTokenPriceHistory = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const token = await Token.findByPk(id);
+        if (!token) 
+            return res.status(404).json({ message: 'Token not found' });
 
-    const { id } = req.params;
-    const {name, price, description, priceHistory} = req.body
-
-    const token = await Token.findByPk(id)
-    token.name = name
-    token.price = price
-    token.description = description
-    token.priceHistory = priceHistory
-    await token.save()
-
-    res.json(token)
+        res.json({ priceHistory: token.priceHistory });
     } catch (error) {
-        return res.status(500).json({message: error.message})
+        return res.status(500).json({ message: error.message });
     }
-}
+};
+
+export const createToken = async (req, res) => {
+    try {
+        const { name, price, description, priceHistory } = req.body;
+
+        const newToken = await Token.create({
+            name,
+            price,
+            description,
+            priceHistory: priceHistory || [],
+        });
+
+        res.json(newToken);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+};
+
+
+export const updateToken = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { price, priceHistory } = req.body;
+
+        console.log('Request body:', req.body);
+
+        const token = await Token.findByPk(id);
+        if (!token) 
+            return res.status(404).json({ message: 'Token not found' });
+
+        console.log('Existing priceHistory:', token.priceHistory);
+
+        // Actualiza el historial de precios
+        const updatedPriceHistory = [...(token.priceHistory || []), token.price]; // Agrega el precio actual al historial
+        console.log('Updated priceHistory:', updatedPriceHistory);
+
+        await token.update({ price, priceHistory: updatedPriceHistory });
+
+        res.json(token);
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
+};
+
+
+
 
 export const deleteToken = async (req, res) =>{
     try {

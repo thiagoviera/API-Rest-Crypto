@@ -18,7 +18,8 @@ export const Token = sequelize.define("tokens", {
         type: DataTypes.STRING,
     },
     priceHistory: {
-        type: DataTypes.DOUBLE,
+        type: DataTypes.JSONB,
+        defaultValue: [],
     },
 }, {
     timestamps: true
